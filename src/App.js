@@ -6,11 +6,12 @@ function App() {
   const [books, setBooks] = useState([]);
 
   const handleCreateBook = title => {
-    console.log(title);
+    setBooks([...books, { id: Math.round(Math.random() * 9999), title }]);
   };
 
   return (
     <div className="App">
+      {books.length}
       <BookCreate onSubmit={handleCreateBook} />
     </div>
   );

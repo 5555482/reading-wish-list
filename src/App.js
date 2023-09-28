@@ -9,10 +9,16 @@ function App() {
   const handleCreateBook = title => {
     setBooks([...books, { id: Math.round(Math.random() * 9999), title }]);
   };
+  const handleDeleteBook = id => {
+    const updatedListOfBooks = books.filter(book => {
+      return book.id !== id;
+    });
+    setBooks(updatedListOfBooks);
+  };
 
   return (
     <div className="app">
-      <BookList books={books} />
+      <BookList books={books} onDeleteBook={handleDeleteBook} />
       <BookCreate onSubmit={handleCreateBook} />
     </div>
   );

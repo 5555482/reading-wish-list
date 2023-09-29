@@ -15,19 +15,23 @@ function App() {
     });
     setBooks(updatedListOfBooks);
   };
-  // const handleEditBook = (id,newTitle) => {
-  //   const updatedListOfBooks = books.filter(book => {
-  //     if (book.id===id) {
-  //       return {...book, book.title=newTitle};
-  //     }
-  //     return book
-  //   });
-  //   setBooks(updatedListOfBooks);
-  // };
+  const handleEditBook = (id, newTitle) => {
+    const updatedListOfBooks = books.map(book => {
+      if (book.id === id) {
+        return { ...book, title: newTitle };
+      }
+      return book;
+    });
+    setBooks(updatedListOfBooks);
+  };
 
   return (
     <div className="app">
-      <BookList books={books} onDeleteBook={handleDeleteBook} />
+      <BookList
+        books={books}
+        onDeleteBook={handleDeleteBook}
+        onEditBook={handleEditBook}
+      />
       <BookCreate onSubmit={handleCreateBook} />
     </div>
   );

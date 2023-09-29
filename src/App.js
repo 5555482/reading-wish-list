@@ -15,6 +15,15 @@ function App() {
     });
     setBooks(updatedListOfBooks);
   };
+  // const handleEditBook = (id,newTitle) => {
+  //   const updatedListOfBooks = books.filter(book => {
+  //     if (book.id===id) {
+  //       return {...book, book.title=newTitle};
+  //     }
+  //     return book
+  //   });
+  //   setBooks(updatedListOfBooks);
+  // };
 
   return (
     <div className="app">
